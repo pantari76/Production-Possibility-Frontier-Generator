@@ -19,8 +19,8 @@ def graph(x1, x2, x3, x4, y1, y2, y3, y4, name1, name2, slide1, slide2):
       xnew = np.linspace(x.min(), x.max(), 200) 
 
       # smoothing over the line on the graph 
-      spl = make_interp_spline(x, y, k=3)
-      y_smooth = spl(xnew)
+      spline = make_interp_spline(x, y, k=3)
+      y_smooth = spline(xnew)
 
       # labelling and plotting the graph
       plt.xlabel(name1)
@@ -44,8 +44,8 @@ def graph(x1, x2, x3, x4, y1, y2, y3, y4, name1, name2, slide1, slide2):
       scaled_xnew = np.linspace(scaled_x.min(), scaled_x.max(), 200) 
 
       # smoothing over the line on the graph
-      scaled_spl = make_interp_spline(scaled_x, scaled_y, k=3)
-      scaled_y_smooth = scaled_spl(scaled_xnew)
+      scaled_spline = make_interp_spline(scaled_x, scaled_y, k=3)
+      scaled_y_smooth = scaled_spline(scaled_xnew)
 
       # labelling and plotting the graph
       plt.xlabel(name1)
@@ -92,7 +92,7 @@ def scaleArray(arr, scale):
 
 # helper method to create a name for the legend 
 def createLabel(x, y, name1, name2):
-  return str(x.max() / y.max()) + " " + name1 + " per " + name2
+  return str(round((x.max() / y.max()), 2)) + " " + name1 + " per " + name2
 
 def main():
   create_gui()
