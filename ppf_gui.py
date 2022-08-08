@@ -73,7 +73,7 @@ def create_gui():
              sg.Slider(range=(-100, 100), orientation="horizontal", default_value=0, key="slider2")],
            [sg.Button("Create Graph")]]
 
-  window = sg.Window("Test", layout)
+  window = sg.Window("PPF Generator", layout)
 
   # running the gui and collecting the user inputs to create the graphs
   while(True):
